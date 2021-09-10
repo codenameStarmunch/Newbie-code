@@ -1,0 +1,26 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def mandelbrot_set(num, N, X0, fractal="Mandelbrot"):
+    X = np.linspace(X0[0], X0[1], N)
+    Y = np.linspace(X0[2], X0[3], N)
+    [x, y] = np.meshgrid(X, Y * 1j)
+    z = x + y
+    c = x + y
+    Q = np.zeros([N, N])
+
+    for i in range(num):
+        index = np.abs(z) < np.inf
+        Q[index] = Q[index] + 1
+        if fractal == "Julia":
+            z = z ** 2 + -0.835 - 0.2321 * 1j
+        if fractal == "Mandelbrot":
+            z = z ** 2 + c
+
+    plt.figure(figsize = (8, 8))
+    plt.pcolormesh(X, Y, Q, cmap = "Greys")
+    plt.axis('equal')
+    plt.show()
+
+
+mandelbrot_set(50, 1000, [-2 ,2 ,-2 ,2], "Mandelbrot")
