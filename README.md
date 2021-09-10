@@ -1,2 +1,2 @@
 # Newbie-code
-Basic code snippets from my Python journey as a beginner.
+Code snippets from my Python journey from beginner to ... almost intermediate.
