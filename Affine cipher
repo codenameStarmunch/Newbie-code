@@ -1,0 +1,25 @@
+class Affine(object):
+    DIE = 128
+    KEY = (7, 3, 55)
+
+    def __init__(self):
+        pass
+
+    def encrypt_char(self, char):
+        k1, k2, ki = self.KEY
+        return chr((k1 * ord(char) + k2) % self.DIE)
+
+    def encrypt(self, string):
+        return ''.join(map(self.encrypt_char, string))
+
+    def decrypt_char(self, char):
+        k1, k2, ki = self.KEY
+        return chr(ki * (ord(char) - k2) % self.DIE)
+
+    def decrypt(self, string):
+        return ''.join(map(self.decrypt_char, string))
+
+affine = Affine()
+
+print(affine.encrypt(''))
+print(affine.decrypt(''))
