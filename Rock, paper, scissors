@@ -1,0 +1,37 @@
+import random
+
+player = True
+
+while player:
+    rock_paper_scissors = ["rock", "paper", "scissors"]
+    computer_choice = random.choice(rock_paper_scissors)
+    user_choice = input("\nDo you choose rock, paper, or scissors? ")
+
+    if computer_choice == user_choice:
+        print("it's a tie!")
+
+    elif computer_choice == "rock":
+        if user_choice == "paper":
+            print("You win! Paper wraps rock!")
+        else:
+            print("You lose!")
+
+    elif computer_choice == "paper":
+        if user_choice == "scissors":
+            print("You win! Scissors cut paper!")
+        else:
+            print("You lose. Paper don't cut it (*sigh*).")
+
+    elif computer_choice == "scissors":
+        if user_choice == "rock":
+            print("You win! You blunted my scissors with your rock.")
+        else:
+            print("You lose. I got da rock.")
+
+    new_game = input("\nWould you like to play a new game? (y/n): ")
+
+    if new_game == "y":
+        player = True
+    else:
+        print("K thx bai." )
+        break
